@@ -15,7 +15,7 @@
 - Tacos 1 viande 10 €, 2 viandes 13 €
 - Panini 7 € (menu 10 €)
 - Burgers : mini 3 € (menu 6 €), Giant 7 € (menu 10 €), Big 9 € (menu 12 €), Monstre Le Boucher 10 € (menu 14 €)
-- Sandwich chaud 10 € ; assiette 15 € ; salade 10 €
+- Sandwich chaud 8 € ; assiette 15 € ; salade 10 €
 
 ## Questions fréquentes
 - Sandwich Land est-il halal ? Oui. Toutes les viandes servies chez Sandwich Land sont halal, y compris le jambon du panini Français et le bacon, qui est du bacon de bœuf.
