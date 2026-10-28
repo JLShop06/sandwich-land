@@ -27,4 +27,4 @@
 - Combien coûte un menu burger ? Un menu (burger, frites et boisson) coûte 6 € en mini burger, 10 € en Giant, 12 € en Big Burger et 14 € pour le Monstre Burger Le Boucher.
 
 ## Pages
-- [Site Sandwich Land](https://jlshop06.github.io/sandwich-land/) : carte complète, horaires, livraison, FAQ
+- [Site Sandwich Land](https://sandwichland.fr/) : carte complète, horaires, livraison, FAQ

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jlshop06.github.io/sandwich-land/sitemap.xml
+Sitemap: https://sandwichland.fr/sitemap.xml
