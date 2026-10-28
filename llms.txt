@@ -1,0 +1,30 @@
+# Sandwich Land
+
+> Snack halal à Roquebrune-Cap-Martin (06190, Côte d'Azur) depuis 2004 : burgers, tacos, paninis, sandwichs chauds, assiettes, salades, finger food. Livraison à Roquebrune-Cap-Martin et Menton.
+
+## Infos pratiques
+- Adresse : 10 avenue Maréchal Foch, 06190 Roquebrune-Cap-Martin
+- Téléphone : 04 93 57 47 06
+- Horaires : lundi au samedi, 11 h 30 – 14 h 00 et 18 h 00 – 22 h 00 ; fermé le dimanche
+- Livraison : gratuite dès 15 €, sinon 2 € ; zone Roquebrune-Cap-Martin et Menton ; aussi sur Uber Eats
+- Paiement : CB, sans contact, Apple Pay, espèces, Ticket Restaurant, Chèque-Vacances
+- Viandes 100 % halal
+- Instagram : https://www.instagram.com/sandwichland06/
+
+## Prix repères
+- Tacos 1 viande 10 €, 2 viandes 13 €
+- Panini 7 € (menu 10 €)
+- Burgers : mini 3 € (menu 6 €), Giant 7 € (menu 10 €), Big 9 € (menu 12 €), Monstre Le Boucher 10 € (menu 14 €)
+- Sandwich chaud 10 € ; assiette 15 € ; salade 10 €
+
+## Questions fréquentes
+- Sandwich Land est-il halal ? Oui. Toutes les viandes servies chez Sandwich Land sont halal, y compris le jambon du panini Français et le bacon, qui est du bacon de bœuf.
+- Quels sont les horaires de Sandwich Land ? Du lundi au samedi, de 11 h 30 à 14 h 00 et de 18 h 00 à 22 h 00. Le snack est fermé le dimanche.
+- Livrez-vous à Menton ? Oui. Sandwich Land livre à Roquebrune-Cap-Martin et à Menton. La livraison est gratuite à partir de 15 € de commande, sinon elle coûte 2 €. Commande par téléphone au 04 93 57 47 06 ou sur Uber Eats.
+- Où se trouve Sandwich Land ? Au 10 avenue Maréchal Foch, 06190 Roquebrune-Cap-Martin, sur la Côte d'Azur, entre Menton et Monaco.
+- Y a-t-il une option végétarienne ? Oui : le burger Vegan (galette de légumes, crudités, cheddar), le panini 3 Fromages, les frites, les onion rings, les mozza sticks et les desserts.
+- Quels moyens de paiement sont acceptés ? Carte bancaire, paiement sans contact, Apple Pay, espèces, Ticket Restaurant et Chèque-Vacances.
+- Combien coûte un menu burger ? Un menu (burger, frites et boisson) coûte 6 € en mini burger, 10 € en Giant, 12 € en Big Burger et 14 € pour le Monstre Burger Le Boucher.
+
+## Pages
+- [Site Sandwich Land](https://jlshop06.github.io/sandwich-land/) : carte complète, horaires, livraison, FAQ

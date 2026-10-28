@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sandwich Land Roquebrune-Cap-Martin</title>
+<meta name="description" content="Sandwich Land, snack halal depuis 2004 à Roquebrune-Cap-Martin : burgers, tacos, paninis, sandwichs chauds, assiettes. Livraison gratuite dès 15 € à Roquebrune et Menton. 04 93 57 47 06.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Archivo:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap">
+<style>
+/* Layout: nuit new-yorkaise — hero néon + skyline, carte en "lignes de métro", plaque de rue verte pour l'adresse */
+:root{
+  --ink:#0c0c0e; --ink-2:#141417; --ink-3:#1d1d22; --line:#2c2b31;
+  --cream:#f3eee2; --mute:#a8a397; --taxi:#f4c430; --taxi-deep:#d9a400;
+  --street:#0e6b45; --brick:#8a3b2a;
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-lux:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--taxi);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.lux{font-family:var(--f-lux);font-style:italic;font-weight:500;letter-spacing:.01em}
+.eyebrow{font-family:var(--f-body);font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taxi);font-weight:700}
+h1,h2,h3{font-family:var(--f-display);text-transform:uppercase;line-height:.92;margin:0;text-wrap:balance}
+
+/* top bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{font-family:var(--f-display);font-weight:900;font-size:1.45rem;letter-spacing:.04em;text-decoration:none;text-transform:uppercase}
+.brand span{color:var(--taxi)}
+.nav{display:flex;gap:22px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--mute)}
+.nav a:hover{color:var(--cream)}
+.call{display:inline-flex;align-items:center;gap:8px;background:var(--taxi);color:var(--ink);font-weight:700;text-decoration:none;padding:10px 16px;border-radius:2px;font-size:.92rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.call:hover{background:var(--cream)}
+@media (max-width:820px){.nav{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;isolation:isolate;
+  background:
+    linear-gradient(180deg,rgba(12,12,14,.55) 0%,rgba(12,12,14,.35) 40%,var(--ink) 96%),
+    url("https://images.unsplash.com/photo-1512621301270-6b01205790ef?fm=webp&q=90&w=2000&fit=crop") center 30%/cover no-repeat,
+    radial-gradient(120% 80% at 70% 10%,#3a2a12 0%,#17151a 45%,var(--ink) 80%)}
+#sky{position:absolute;left:0;right:0;bottom:120px;width:100%;height:340px;z-index:-1;opacity:.9}
+.hero .wrap{padding-block:clamp(48px,9vw,110px) 0;display:grid;gap:28px}
+.hero-top{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.chip{border:1px solid rgba(243,238,226,.35);padding:5px 12px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;border-radius:999px;background:rgba(12,12,14,.45)}
+.chip.y{border-color:var(--taxi);color:var(--taxi)}
+.hero h1{font-size:clamp(4rem,15vw,11.5rem);font-weight:900;letter-spacing:-.01em;color:var(--cream)}
+.hero h1 em{display:block;font-style:normal;color:var(--taxi);-webkit-text-stroke:0}
+.hero .tag{font-size:clamp(1.5rem,3.4vw,2.4rem);max-width:28ch;line-height:1.15;margin:0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-weight:700;text-decoration:none;border-radius:2px;letter-spacing:.04em}
+.btn.p{background:var(--taxi);color:var(--ink)}
+.btn.p:hover{background:var(--cream)}
+.btn.g{border:1px solid rgba(243,238,226,.5);background:rgba(12,12,14,.4)}
+.btn.g:hover{border-color:var(--taxi);color:var(--taxi)}
+.plats{margin-top:12px;position:relative}
+.plats img{display:block;width:100%;height:auto;max-width:100%;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(180deg,#000 80%,transparent);
+  mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+  -webkit-mask-composite:source-in;mask-composite:intersect}
+
+/* ticker */
+.ticker{background:var(--taxi);color:var(--ink);overflow:hidden;border-block:3px solid var(--ink)}
+.ticker .row{display:flex;gap:40px;white-space:nowrap;padding:12px 0;font-family:var(--f-display);font-weight:800;font-size:1.35rem;text-transform:uppercase;letter-spacing:.06em;animation:slide 38s linear infinite;width:max-content}
+.ticker .row span::after{content:"✦";margin-left:40px;font-size:.9rem;vertical-align:middle}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .row{animation:none}}
+
+/* sections */
+section{padding-block:clamp(64px,9vw,112px)}
+.head{display:grid;gap:12px;margin-bottom:44px;max-width:760px}
+.head h2{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:900}
+.head p{color:var(--mute);margin:0;max-width:60ch}
+
+/* signatures */
+.sig{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.sig figure{margin:0;background:var(--ink-2);border:1px solid var(--line);display:grid;grid-template-rows:200px auto}
+.sig .ph{display:grid;place-items:center;background:radial-gradient(70% 70% at 50% 60%,#2a2119,var(--ink-2));overflow:hidden}
+.sig img{max-width:88%;max-height:180px;width:auto;height:auto;object-fit:contain;transition:transform .5s ease}
+.sig figure:hover img{transform:scale(1.06)}
+.sig figcaption{padding:16px 18px 18px;display:grid;gap:4px;border-top:1px solid var(--line)}
+.sig h3{font-size:1.7rem;font-weight:800}
+.sig .p{color:var(--taxi);font-weight:700;font-variant-numeric:tabular-nums}
+.sig small{color:var(--mute);font-size:.86rem}
+@media (max-width:900px){.sig{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.sig{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--ink-2);border-block:1px solid var(--line)}
+.lines{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.lines a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px 6px 6px;border:1px solid var(--line);border-radius:999px;color:var(--mute)}
+.lines a:hover{color:var(--cream);border-color:var(--mute)}
+.bullet{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;font-family:var(--f-body);font-weight:700;font-size:.9rem;color:var(--ink);background:var(--taxi);flex:none;letter-spacing:0}
+.bullet.r{background:var(--brick);color:var(--cream)}
+.bullet.g{background:var(--street);color:var(--cream)}
+.bullet.c{background:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.cat{background:var(--ink);border:1px solid var(--line);padding:26px 24px 22px;min-width:0;scroll-margin-top:90px}
+.cat.wide{grid-column:1/-1}
+.cat header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.cat h3{font-size:2.1rem;font-weight:800;letter-spacing:.02em}
+.cat .note{color:var(--mute);font-size:.88rem;margin:0 0 14px 42px}
+.cat .price-tag{margin-left:auto;font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:var(--taxi);font-variant-numeric:tabular-nums;white-space:nowrap}
+ul.items{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.items li{display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:baseline}
+.items b{font-weight:700;letter-spacing:.02em;display:flex;align-items:baseline;gap:10px;min-width:0}
+.items b::after{content:"";flex:1;border-bottom:1px dotted #4a4850;transform:translateY(-4px);min-width:16px}
+.items .v{font-variant-numeric:tabular-nums;color:var(--taxi);font-weight:700;white-space:nowrap}
+.items .d{grid-column:1/-1;color:var(--mute);font-size:.9rem;line-height:1.45}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 32px}
+@media (max-width:600px){.two{grid-template-columns:1fr}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{border:1px solid var(--line);padding:4px 11px;font-size:.84rem;border-radius:999px}
+.mentions{margin-top:28px;color:var(--mute);font-size:.8rem;letter-spacing:.02em}
+
+/* infos */
+.infos .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+@media (max-width:900px){.infos .wrap{grid-template-columns:1fr}}
+.sign{display:inline-grid;background:var(--street);color:#fff;border:3px solid #fff;outline:2px solid var(--street);border-radius:6px;padding:10px 20px 8px;font-family:var(--f-body);font-weight:700;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;margin-bottom:22px}
+.sign span{font-size:clamp(1.3rem,3.6vw,1.9rem)}
+.sign small{font-size:.72rem;letter-spacing:.18em;opacity:.9;font-weight:500}
+dl.hours{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:0 0 28px;font-variant-numeric:tabular-nums}
+dl.hours dt{color:var(--mute);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;padding-top:3px}
+dl.hours dd{margin:0;font-weight:500}
+.closed{color:var(--taxi)}
+.panel{background:var(--ink-2);border:1px solid var(--line);padding:28px;display:grid;gap:18px}
+.panel h3{font-size:2rem;font-weight:800}
+.panel p{margin:0;color:var(--mute)}
+.big{font-family:var(--f-display);font-weight:900;font-size:clamp(2.4rem,6vw,3.4rem);color:var(--taxi);text-decoration:none;font-variant-numeric:tabular-nums;line-height:1;user-select:all}
+.pay{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.pay li{background:var(--ink-3);padding:6px 12px;font-size:.84rem;border-radius:2px}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.qa{display:grid;gap:0;max-width:880px}
+.qa details{border-bottom:1px solid var(--line)}
+.qa summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:700;font-size:1.08rem;position:relative}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";position:absolute;right:4px;top:14px;font-family:var(--f-display);font-size:2rem;color:var(--taxi);transition:transform .2s}
+.qa details[open] summary::after{transform:rotate(45deg)}
+.qa details p{margin:0 0 22px;color:var(--mute);max-width:65ch}
+
+footer{border-top:1px solid var(--line);padding-block:40px;color:var(--mute);font-size:.86rem}
+footer .wrap{display:grid;gap:14px}
+footer .f-row{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer .brand{font-size:1.8rem;color:var(--cream)}
+.credit{font-size:.74rem;opacity:.75}
+</style>
+<link rel="canonical" href="https://jlshop06.github.io/sandwich-land/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0c0c0e">
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Sandwich Land">
+<meta property="og:title" content="Sandwich Land – Snack halal à Roquebrune-Cap-Martin depuis 2004">
+<meta property="og:description" content="Burgers, tacos, paninis, sandwichs chauds et assiettes. Livraison gratuite dès 15 € à Roquebrune-Cap-Martin et Menton.">
+<meta property="og:url" content="https://jlshop06.github.io/sandwich-land/">
+<meta property="og:image" content="https://jlshop06.github.io/sandwich-land/img/hero-plats.webp">
+<meta property="og:image:width" content="1310"><meta property="og:image:height" content="375">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sandwich Land – Snack halal à Roquebrune-Cap-Martin">
+<meta name="twitter:description" content="Burgers, tacos, paninis. Livraison gratuite dès 15 € à Roquebrune-Cap-Martin et Menton.">
+<meta name="twitter:image" content="https://jlshop06.github.io/sandwich-land/img/hero-plats.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f4c430'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='900' font-size='30' text-anchor='middle' fill='%230c0c0e'%3ESL%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1512621301270-6b01205790ef?fm=webp&q=90&w=2000&fit=crop">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Restaurant", "@id": "https://jlshop06.github.io/sandwich-land/#restaurant", "name": "Sandwich Land", "url": "https://jlshop06.github.io/sandwich-land/", "image": "https://jlshop06.github.io/sandwich-land/img/hero-plats.webp", "telephone": "+33493574706", "priceRange": "€", "servesCuisine": ["Burgers", "Tacos", "Paninis", "Kebab", "Fast-food halal"], "foundingDate": "2004", "acceptsReservations": false, "hasMenu": "https://jlshop06.github.io/sandwich-land/#carte", "address": {"@type": "PostalAddress", "streetAddress": "10 avenue Maréchal Foch", "postalCode": "06190", "addressLocality": "Roquebrune-Cap-Martin", "addressRegion": "Alpes-Maritimes", "addressCountry": "FR"}, "areaServed": ["Roquebrune-Cap-Martin", "Menton"], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "11:30", "closes": "14:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "18:00", "closes": "22:00"}], "paymentAccepted": "Carte bancaire, sans contact, Apple Pay, espèces, Ticket Restaurant, Chèque-Vacances", "sameAs": ["https://www.instagram.com/sandwichland06/"]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Sandwich Land est-il halal ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Toutes les viandes servies chez Sandwich Land sont halal, y compris le jambon du panini Français et le bacon, qui est du bacon de bœuf."}}, {"@type": "Question", "name": "Quels sont les horaires de Sandwich Land ?", "acceptedAnswer": {"@type": "Answer", "text": "Du lundi au samedi, de 11 h 30 à 14 h 00 et de 18 h 00 à 22 h 00. Le snack est fermé le dimanche."}}, {"@type": "Question", "name": "Livrez-vous à Menton ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Sandwich Land livre à Roquebrune-Cap-Martin et à Menton. La livraison est gratuite à partir de 15 € de commande, sinon elle coûte 2 €. Commande par téléphone au 04 93 57 47 06 ou sur Uber Eats."}}, {"@type": "Question", "name": "Où se trouve Sandwich Land ?", "acceptedAnswer": {"@type": "Answer", "text": "Au 10 avenue Maréchal Foch, 06190 Roquebrune-Cap-Martin, sur la Côte d'Azur, entre Menton et Monaco."}}, {"@type": "Question", "name": "Y a-t-il une option végétarienne ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui : le burger Vegan (galette de légumes, crudités, cheddar), le panini 3 Fromages, les frites, les onion rings, les mozza sticks et les desserts."}}, {"@type": "Question", "name": "Quels moyens de paiement sont acceptés ?", "acceptedAnswer": {"@type": "Answer", "text": "Carte bancaire, paiement sans contact, Apple Pay, espèces, Ticket Restaurant et Chèque-Vacances."}}, {"@type": "Question", "name": "Combien coûte un menu burger ?", "acceptedAnswer": {"@type": "Answer", "text": "Un menu (burger, frites et boisson) coûte 6 € en mini burger, 10 € en Giant, 12 € en Big Burger et 14 € pour le Monstre Burger Le Boucher."}}]}]}</script>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Sandwich <span>Land</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#carte">La carte</a>
+      <a href="#infos">Horaires &amp; livraison</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="call" href="tel:+33493574706" aria-label="Appeler Sandwich Land au 04 93 57 47 06">☎ 04 93 57 47 06</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0" aria-labelledby="h1">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="chip y">Depuis 2004</span>
+        <span class="chip">100 % halal</span>
+        <span class="chip">Roquebrune-Cap-Martin</span>
+      </div>
+      <h1 id="h1">Sandwich <em>Land</em></h1>
+      <p class="tag"><span class="lux">Le goût de la street food new-yorkaise,</span> entre Menton et Monaco.</p>
+      <div class="hero-cta">
+        <a class="btn p" href="tel:+33493574706">Commander au 04 93 57 47 06</a>
+        <a class="btn g" href="#carte">Voir la carte</a>
+      </div>
+      <div class="plats">
+        <img src="img/hero-plats.webp" width="1310" height="375" alt="Tacos, burger au poulet krispy, panini et burger au steak de Sandwich Land" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="row">
+      <span>Livraison gratuite dès 15 €</span><span>Roquebrune-Cap-Martin &amp; Menton</span><span>Burgers · Tacos · Paninis</span><span>Halal</span><span>Aussi sur Uber Eats</span>
+      <span>Livraison gratuite dès 15 €</span><span>Roquebrune-Cap-Martin &amp; Menton</span><span>Burgers · Tacos · Paninis</span><span>Halal</span><span>Aussi sur Uber Eats</span>
+    </div>
+  </div>
+
+  <section aria-labelledby="sig-t">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Les incontournables</span>
+        <h2 id="sig-t">Made in <span class="lux" style="text-transform:none;font-size:.8em;color:var(--taxi)">Roquebrune</span></h2>
+        <p>Pain brioché toasté, steaks façon bouchère, poulet krispy et sauces maison au choix. Ce que nos habitués commandent les yeux fermés.</p>
+      </div>
+      <div class="sig">
+        <figure><div class="ph"><img src="img/burger.webp" width="335" height="335" alt="Burger Le Boucher, steak 150 g façon bouchère et cheddar" loading="lazy"></div><figcaption><h3>Le Boucher</h3><span class="p">10 € · menu 14 €</span><small>Steak 150 g façon bouchère, crudités, cheddar</small></figcaption></figure>
+        <figure><div class="ph"><img src="img/tacos.webp" width="368" height="280" alt="Tacos gratiné aux tenders et frites" loading="lazy"></div><figcaption><h3>Tacos</h3><span class="p">dès 10 €</span><small>1 ou 2 viandes au choix</small></figcaption></figure>
+        <figure><div class="ph"><img src="img/tasty-krousty.webp" width="445" height="320" alt="Tasty Krousty, poulet crousty sur riz et sauce" loading="lazy"></div><figcaption><h3>Tasty Krousty</h3><span class="p">10 € · avec boisson 12 €</span><small>Poulet crousty ou poulet mariné</small></figcaption></figure>
+        <figure><div class="ph"><img src="img/panini.webp" width="395" height="228" alt="Panini trois fromages grillé" loading="lazy"></div><figcaption><h3>Panini</h3><span class="p">7 € · menu 10 €</span><small>Six recettes, du 3 Fromages au Kebab</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="carte" aria-labelledby="carte-t">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">La carte complète</span>
+        <h2 id="carte-t">La carte</h2>
+        <p>Menu = plat + frites + boisson. Toutes nos viandes sont halal.</p>
+      </div>
+      <nav class="lines" aria-label="Catégories de la carte">
+        <a href="#burgers"><span class="bullet">B</span>Burgers</a>
+        <a href="#tacos"><span class="bullet r">T</span>Tacos</a>
+        <a href="#paninis"><span class="bullet g">P</span>Paninis</a>
+        <a href="#chauds"><span class="bullet c">S</span>Sandwichs chauds</a>
+        <a href="#assiettes"><span class="bullet r">A</span>Assiettes &amp; salades</a>
+        <a href="#finger"><span class="bullet">F</span>Finger food</a>
+        <a href="#desserts"><span class="bullet g">D</span>Desserts &amp; boissons</a>
+      </nav>
+
+      <div class="grid">
+        <article class="cat wide" id="burgers">
+          <header><span class="bullet">B</span><h3>Burgers</h3></header>
+          <p class="note">Mini 3 € (menu 6 €) · Giant 7 € (menu 10 €) · Big 9 € (menu 12 €) · Monstre 10 € (menu 14 €)</p>
+          <div class="two">
+            <ul class="items">
+              <li><b>Mini Cheese</b><span class="v">3 €</span><span class="d">Steak, cheddar</span></li>
+              <li><b>Mini Chicken</b><span class="v">3 €</span><span class="d">Poulet krispy, cheddar</span></li>
+              <li><b>Giant</b><span class="v">7 €</span><span class="d">Steak 100 g, crudités, cheddar</span></li>
+              <li><b>Chicken</b><span class="v">7 €</span><span class="d">Poulet krispy, crudités, cheddar</span></li>
+              <li><b>Vegan</b><span class="v">7 €</span><span class="d">Galette de légumes, crudités, cheddar</span></li>
+            </ul>
+            <ul class="items">
+              <li><b>Double Giant</b><span class="v">9 €</span><span class="d">2 steaks 100 g, crudités, cheddar</span></li>
+              <li><b>Royal Chicken</b><span class="v">9 €</span><span class="d">Poulet krispy, galette krousty, crudités, cheddar</span></li>
+              <li><b>Le Montagnard</b><span class="v">9 €</span><span class="d">Steak 100 g, crudités, raclette, bacon</span></li>
+              <li><b>Le Boucher</b><span class="v">10 €</span><span class="d">Steak 150 g façon bouchère, crudités, cheddar</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="cat" id="tacos">
+          <header><span class="bullet r">T</span><h3>Tacos</h3></header>
+          <p class="note">Avec boisson +2 €</p>
+          <ul class="items">
+            <li><b>1 viande</b><span class="v">10 €</span></li>
+            <li><b>2 viandes</b><span class="v">13 €</span></li>
+            <li><span class="d">Viandes au choix : poulet tikka, steak, tenders, kebab, cordon bleu</span></li>
+          </ul>
+          <header style="margin-top:28px"><span class="bullet">K</span><h3>Tasty Krousty</h3><span class="price-tag">10 €</span></header>
+          <p class="note">Avec boisson 12 €</p>
+          <ul class="items"><li><span class="d">Poulet crousty ou poulet mariné, servi sur riz</span></li></ul>
+        </article>
+
+        <article class="cat" id="paninis">
+          <header><span class="bullet g">P</span><h3>Paninis</h3><span class="price-tag">7 €</span></header>
+          <p class="note">Avec frites &amp; boisson 10 €</p>
+          <ul class="items">
+            <li><b>3 Fromages</b><span class="d">Mozzarella, roquefort, chèvre</span></li>
+            <li><b>Méditerranée</b><span class="d">Tomates, mozzarella, thon</span></li>
+            <li><b>Land</b><span class="d">Mozzarella, 2 steaks hachés</span></li>
+            <li><b>Indien</b><span class="d">Tomates, mozzarella, poulet curry</span></li>
+            <li><b>Français</b><span class="d">Salade, jambon (halal), fromage</span></li>
+            <li><b>Kebab</b><span class="d">Tomates, mozzarella, kebab</span></li>
+          </ul>
+        </article>
+
+        <article class="cat" id="chauds">
+          <header><span class="bullet c">S</span><h3>Sandwichs chauds</h3><span class="price-tag">10 €</span></header>
+          <p class="note">Avec frites 10 € · frites + boisson 12 €</p>
+          <ul class="items">
+            <li><span class="d">Pain ou galette (pita) &amp; crudités</span></li>
+            <li><ul class="tags"><li>Kebab</li><li>Américain</li><li>Chicken Tikka</li><li>Cordon Bleu</li><li>Tenders</li></ul></li>
+          </ul>
+        </article>
+
+        <article class="cat" id="assiettes">
+          <header><span class="bullet r">A</span><h3>Assiettes</h3><span class="price-tag">15 €</span></header>
+          <p class="note">Servies avec crudités, frites et viande · avec boisson +2 €</p>
+          <ul class="items">
+            <li><ul class="tags"><li>Kebab</li><li>Fish (colin pané)</li><li>Chicken Tikka (poulet mariné)</li><li>Steak 150 g façon bouchère</li><li>Cordon Bleu</li><li>Tenders</li></ul></li>
+          </ul>
+          <header style="margin-top:28px"><span class="bullet g">S</span><h3>Salades</h3><span class="price-tag">10 €</span></header>
+          <p class="note">Avec boisson +2 €</p>
+          <ul class="items">
+            <li><b>Méditerranéenne</b><span class="d">Crudités, thon, œuf</span></li>
+            <li><b>César</b><span class="d">Crudités, poulet krispy, maïs, œuf</span></li>
+          </ul>
+        </article>
+
+        <article class="cat wide" id="finger">
+          <header><span class="bullet">F</span><h3>Finger food &amp; frites</h3></header>
+          <div class="two" style="margin-top:16px">
+            <ul class="items">
+              <li><b>Onion rings ×10</b><span class="v">7 €</span></li>
+              <li><b>Nuggets ×6 / ×14</b><span class="v">5 € / 10 €</span></li>
+              <li><b>Chicken wings ×6 / ×10</b><span class="v">8 € / 12 €</span></li>
+              <li><b>Mozza sticks ×6 / ×10</b><span class="v">8 € / 12 €</span></li>
+              <li><b>Camembert bites ×6 / ×10</b><span class="v">8 € / 12 €</span></li>
+              <li><b>Jalapeños ×6 / ×10</b><span class="v">8 € / 12 €</span></li>
+              <li><b>Chicken krispy ×6 / ×10</b><span class="v">8 € / 12 €</span></li>
+            </ul>
+            <ul class="items">
+              <li><b>Petite frite</b><span class="v">3 €</span></li>
+              <li><b>Grande frite</b><span class="v">4 €</span></li>
+              <li><b>Frites cheddar &amp; oignons frits</b><span class="v">5 €</span></li>
+              <li><b>Supplément cheddar, chèvre, emmental</b><span class="v">1,50 €</span></li>
+              <li><b>Supplément œuf</b><span class="v">1,50 €</span></li>
+              <li><b>Supplément bacon (bœuf)</b><span class="v">2 €</span></li>
+              <li><b>Supplément viande</b><span class="v">3 €</span></li>
+            </ul>
+          </div>
+          <p class="note" style="margin:24px 0 10px">Nos sauces</p>
+          <ul class="tags"><li>Mayonnaise</li><li>Ketchup</li><li>Harissa</li><li>BBQ</li><li>Samouraï</li><li>Blanche</li><li>Algérienne</li><li>Biggy</li><li>Marocaine</li><li>Brazil</li><li>Poivre</li><li>Curry</li><li>Andalouse</li><li>Miami</li></ul>
+        </article>
+
+        <article class="cat" id="desserts">
+          <header><span class="bullet g">D</span><h3>Desserts</h3></header>
+          <ul class="items" style="margin-top:14px">
+            <li><b>Tiramisu</b><span class="v">5 €</span></li>
+            <li><b>Panini Nutella</b><span class="v">5 €</span></li>
+            <li><b>Churros Nutella</b><span class="v">5 €</span></li>
+            <li><b>Magnum</b><span class="v">3,50 €</span></li>
+            <li><b>Häagen-Dazs 100 ml</b><span class="v">4 €</span></li>
+          </ul>
+        </article>
+
+        <article class="cat">
+          <header><span class="bullet c">B</span><h3>Boissons</h3></header>
+          <ul class="items" style="margin-top:14px">
+            <li><b>Soda 33 cl</b><span class="v">2,50 €</span></li>
+            <li><b>Heineken 25 cl</b><span class="v">3 €</span></li>
+            <li><b>Maxi bouteille</b><span class="v">5 €</span></li>
+            <li><b>Vin Pays d'Oc 75 cl</b><span class="v">10 €</span><span class="d">Rosé ou rouge merlot</span></li>
+          </ul>
+        </article>
+      </div>
+      <p class="mentions">L'abus d'alcool est dangereux pour la santé, à consommer avec modération. Pour votre santé, évitez de manger trop gras, trop sucré, trop salé.</p>
+    </div>
+  </section>
+
+  <section class="infos" id="infos" aria-labelledby="infos-t">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Nous trouver</span>
+        <h2 id="infos-t" style="font-size:clamp(2.8rem,7vw,5.2rem);font-weight:900;margin:12px 0 26px">Horaires &amp; adresse</h2>
+        <div class="sign" aria-label="Adresse"><small>Roquebrune-Cap-Martin · 06190</small><span>10 Av. Maréchal Foch</span></div>
+        <dl class="hours">
+          <dt>Lun – Sam</dt><dd>11 h 30 – 14 h 00 · 18 h 00 – 22 h 00</dd>
+          <dt>Dimanche</dt><dd class="closed">Fermé</dd>
+        </dl>
+        <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Sandwich+Land+10+Avenue+Mar%C3%A9chal+Foch+06190+Roquebrune-Cap-Martin" target="_blank" rel="noopener">Itinéraire Google Maps</a>
+      </div>
+      <div class="panel">
+        <h3>Livraison</h3>
+        <p>Gratuite dès 15 € de commande, sinon 2 € de frais. Zone : Roquebrune-Cap-Martin et Menton. Aussi disponible sur Uber Eats.</p>
+        <a class="big" href="tel:+33493574706">04 93 57 47 06</a>
+        <p style="font-size:.86rem">Moyens de paiement acceptés</p>
+        <ul class="pay"><li>Carte bancaire</li><li>Sans contact</li><li>Apple Pay</li><li>Espèces</li><li>Ticket Restaurant</li><li>Chèque-Vacances</li></ul>
+        <a class="btn g" href="https://www.instagram.com/sandwichland06/" target="_blank" rel="noopener">Instagram @sandwichland06</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-t">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Vos questions</span>
+        <h2 id="faq-t">Questions fréquentes</h2>
+      </div>
+      <div class="qa">
+        <details open><summary>Sandwich Land est-il halal ?</summary><p>Oui. Toutes les viandes servies chez Sandwich Land sont halal, y compris le jambon du panini Français et le bacon, qui est du bacon de bœuf.</p></details>
+        <details><summary>Quels sont les horaires de Sandwich Land ?</summary><p>Du lundi au samedi, de 11 h 30 à 14 h 00 et de 18 h 00 à 22 h 00. Le snack est fermé le dimanche.</p></details>
+        <details><summary>Livrez-vous à Menton ?</summary><p>Oui. Sandwich Land livre à Roquebrune-Cap-Martin et à Menton. La livraison est gratuite à partir de 15 € de commande, sinon elle coûte 2 €. Commande par téléphone au 04 93 57 47 06 ou sur Uber Eats.</p></details>
+        <details><summary>Où se trouve Sandwich Land ?</summary><p>Au 10 avenue Maréchal Foch, 06190 Roquebrune-Cap-Martin, sur la Côte d'Azur, entre Menton et Monaco.</p></details>
+        <details><summary>Y a-t-il une option végétarienne ?</summary><p>Oui : le burger Vegan (galette de légumes, crudités, cheddar), le panini 3 Fromages, les frites, les onion rings, les mozza sticks et les desserts.</p></details>
+        <details><summary>Quels moyens de paiement sont acceptés ?</summary><p>Carte bancaire, paiement sans contact, Apple Pay, espèces, Ticket Restaurant et Chèque-Vacances.</p></details>
+        <details><summary>Combien coûte un menu burger ?</summary><p>Un menu (burger, frites et boisson) coûte 6 € en mini burger, 10 € en Giant, 12 € en Big Burger et 14 € pour le Monstre Burger Le Boucher.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-row">
+      <span class="brand">Sandwich <span style="color:var(--taxi)">Land</span></span>
+      <span>Snack halal depuis 2004 · 10 av. Maréchal Foch, 06190 Roquebrune-Cap-Martin · 04 93 57 47 06</span>
+    </div>
+    <span class="credit">Photo de Times Square : Goh Rhy Yan via Unsplash. © 2026 Sandwich Land.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var c=document.getElementById('sky'); if(!c||!c.getContext) return;
+  function draw(){
+    var w=c.clientWidth, h=c.clientHeight, d=Math.min(window.devicePixelRatio||1,2);
+    c.width=w*d; c.height=h*d; var x=c.getContext('2d'); x.scale(d,d); x.clearRect(0,0,w,h);
+    var s=7; function r(){s=(s*9301+49297)%233280; return s/233280;}
+    var px=0, mid=w*0.62;
+    while(px<w){
+      var bw=24+r()*58, bh=h*(0.25+r()*0.55);
+      if(Math.abs(px-mid)<70) bh=h*0.72;
+      x.fillStyle='#0f0e12'; x.fillRect(px,h-bh,bw-2,bh);
+      for(var yy=h-bh+8; yy<h-6; yy+=9){ for(var xx=px+5; xx<px+bw-8; xx+=7){ if(r()>0.72){ x.fillStyle=r()>0.85?'rgba(244,196,48,.85)':'rgba(243,226,180,.35)'; x.fillRect(xx,yy,3,4);} } }
+      px+=bw;
+    }
+    /* Empire State */
+    x.fillStyle='#0f0e12'; var ex=mid, base=h*0.28;
+    x.fillRect(ex-34,h-h*0.72,68,h*0.72); x.fillRect(ex-22,h-h*0.86,44,h*0.14); x.fillRect(ex-12,h-h*0.94,24,h*0.08);
+    x.fillRect(ex-3,h-h*1,6,h*0.06);
+    x.fillStyle='rgba(244,196,48,.9)'; x.fillRect(ex-12,h-h*0.94,24,3);
+  }
+  draw(); var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,150);});
+})();
+</script>
+</body>
+</html>
